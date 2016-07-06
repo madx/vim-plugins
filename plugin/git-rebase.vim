@@ -1,4 +1,4 @@
-fun! g:initGitRebase()
+fun! g:InitGitRebase()
   nmap <silent><buffer> ,rp :Pick<CR>
   nmap <silent><buffer> ,rs :Squash<CR>
   nmap <silent><buffer> ,re :Edit<CR>
@@ -6,6 +6,6 @@ fun! g:initGitRebase()
   nmap <silent><buffer> ,rf :Fixup<CR>
   nmap <silent><buffer> <Tab> :Cycle<CR>
 endf
-autocmd filetype gitrebase :call g:initGitRebase()
+autocmd filetype gitrebase :call g:InitGitRebase()
 
 " vim:set sw=2:
