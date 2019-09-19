@@ -1,5 +1,5 @@
 " Todo syntax file
-" Filenames:    ~/.todo
+" Filenames:    ~/.local/share/todo/*.txt
 
 if exists("b:current_syntax")
   finish
@@ -7,15 +7,18 @@ endif
 
 unlet! b:current_syntax
 
-syn match todoDone "^\(  \)*✔.\+"
-syn match todoCategory "^\( \)*=.\+$"
-syn match todoUrgent "^\(  \)*+.\+$"
-syn match todoComment " *--.\+$"
+syn match todoItem " *-.\+$" contains=todoDeadline
+syn match todoDone "^\(  \)*✔.\+" contains=todoDeadline
+syn match todoCategory "^\( \)*=.\+$" contains=todoDeadline
+syn match todoUrgent "^\(  \)*+.\+$" contains=todoDeadline
+syn match todoComment " *#.\+$"
+syn match todoDeadline "!\d\d\d\d-\d\d-\d\d" contained
 
 hi link todoDone     Comment
 hi link todoComment  Comment
 hi link todoCategory Type
-hi link todoUrgent   Keyword
+hi link todoUrgent   WarningMsg
+hi link todoDeadline Search
 
 let b:current_syntax = "todo"
 
